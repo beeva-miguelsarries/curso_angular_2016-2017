@@ -23,8 +23,18 @@ Comenzaremos un ejercicio básico para construir un formulario, utilizando para 
 
 **Contenido del bloque teórico:**
 
+* Directivas personalizadas
+* Servicios
+* Filtros
+* Transclusión
+* Herencia de directivas
+* Angular 2
+
 **Contenido del bloque práctico:**
 
+Partiendo del ejercicio básico, crear una directiva personalizada llamada question que permita crear cada tipo de input con su correspondiente control de errores de una forma clara y sencilla.
+
+Como ejericio opcional, desarrollar el juego del tres en raya.
 
 **REQUISITOS TECNOLÓGICOS**
 
