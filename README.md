@@ -1,12 +1,10 @@
-# curso-angular20162017
+# Curso_angular_2015-2016
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+**DOJO**
 
-## Build & development
+**Contenido del bloque práctico:**
 
-Run `grunt` for building and `grunt serve` for preview.
+Vamos a crear el juego de tres en raya, pero esta vez será dinámico (4 en raya, 5 en raya....).
+En la carpeta 'estructura' podeis encontrar el esqueleto del ejercicio, muy organizado y con parte del código desarrollado.
 
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+Cualquier duda nos preguntais.
