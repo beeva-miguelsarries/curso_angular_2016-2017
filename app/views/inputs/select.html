@@ -1,0 +1,7 @@
+<div ng-class="{ 'has-error': self.$invalid && self.$dirty }">
+  <label>{{ label }}</label>
+  <select class="form-control" ng-model="model" name="{{ name }}" ng-required="required">
+    <option ng-repeat="option in options" value="{{ option.value }}">{{ option.label }}</option>
+  </select>
+  <p ng-show="self.$dirty && self.$error.required" class="help-block">El campo <strong>{{ label }}</strong> es obligatorio.</p>
+</div>

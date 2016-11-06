@@ -1,0 +1,28 @@
+<div class"form-group" ng-class="{ 'has-error': self.$invalid && self.$dirty }">
+  <label for="question-{{ name }}">{{ label }}</label>
+  <input
+    type="number"
+    id="question-{{ name }}"
+    name="{{ name }}"
+    class="form-control"
+    placeholder="{{ label }}"
+
+    ng-model="model"
+    ng-required="required"
+    ng-maxlength="maxlength"
+    ng-minlength="minlength"
+    ng-max="max"
+    ng-min="min"
+    ng-step="step"
+    ng-pattern="pattern">
+
+  <div ng-show="self.$dirty">
+    <p ng-show="self.$error.required" class="help-block">El campo <strong>{{ label }}</strong> es obligatorio.</p>
+    <p ng-show="self.$error.maxlength" class="help-block">El campo <strong>{{ label }}</strong> supera los {{ maxlength }} caracteres.</p>
+    <p ng-show="self.$error.minlength" class="help-block">El campo <strong>{{ label }}</strong> debe tener como mínimo {{ minlength }} caracteres.</p>
+    <p ng-show="self.$error.max" class="help-block">El campo <strong>{{ label }}</strong> no puede superar {{ max }}.</p>
+    <p ng-show="self.$error.min" class="help-block">El campo <strong>{{ label }}</strong> debe superar {{ min }}.</p>
+    <p ng-show="self.$error.step" class="help-block">El campo <strong>{{ label }}</strong> debe seguir intervalos de distancia {{ min }}.</p>
+    <p ng-show="self.$error.pattern" class="help-block">El campo <strong>{{ label }}</strong> no cumple el patrón {{ pattern.toString() }}.</p>
+  </div>
+</div>

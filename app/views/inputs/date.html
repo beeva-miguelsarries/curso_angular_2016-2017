@@ -1,0 +1,20 @@
+<div class"form-group" ng-class="{ 'has-error': self.$invalid && self.$dirty }">
+  <label for="question-{{ name }}">{{ label }}</label>
+  <input
+    type="date"
+    id="question-{{ name }}"
+    name="{{ name }}"
+    class="form-control"
+    placeholder="{{ label }}"
+
+    ng-model="model"
+    ng-required="required"
+    ng-max="max"
+    ng-min="min">
+
+  <div ng-show="self.$dirty">
+    <p ng-show="self.$error.required" class="help-block">El campo <strong>{{ label }}</strong> es obligatorio.</p>
+    <p ng-show="self.$error.max" class="help-block">El campo <strong>{{ label }}</strong> no puede superar {{ max | date: 'dd/MM/yyyy' }}.</p>
+    <p ng-show="self.$error.min" class="help-block">El campo <strong>{{ label }}</strong> debe superar {{ min | date: 'dd/MM/yyyy' }}.</p>
+  </div>
+</div>

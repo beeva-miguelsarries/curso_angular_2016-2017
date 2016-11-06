@@ -1,0 +1,14 @@
+<div>
+  <p ng-if="!!label"><strong>{{ label }}</strong></p>
+  <div class="radio" ng-repeat="option in options">
+    <label>
+      <input
+        type="radio"
+        name="{{ name }}"
+
+        ng-model="model"
+        ng-value="option.value">
+      {{ option.label }}
+    </label>
+  </div>
+</div>

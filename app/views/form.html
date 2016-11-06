@@ -1,2 +1,76 @@
-oijhfdsaihafds
-<question type="ayy lmao"></question>
+<form name="{{ name }}" ng-submit="submit()" novalidate>
+  {{ validating | json }}
+  <question
+    label="data.nombre.label"
+    type="text"
+    name="nombre"
+    model="data.nombre.model"
+    required="data.nombre.required"
+    maxlength="data.nombre.maxlength"
+    pattern="data.nombre.pattern">
+  </question>
+
+  <question
+    label="data.pass.label"
+    type="password"
+    name="pass"
+    model="data.pass.model"
+    required="data.pass.required"
+    minlength="data.pass.minlength">
+  </question>
+
+  <question
+    label="data.nacimiento.label"
+    type="date"
+    name="nacimiento"
+    model="data.nacimiento.model"
+    required="data.nacimiento.required"
+    min="data.nacimiento.min"
+    max="data.nacimiento.max">
+  </question>
+
+  <question
+    label="data.email.label"
+    type="email"
+    name="email"
+    model="data.email.model"
+    required="data.email.required">
+  </question>
+
+  <question
+    label="data.parpadeos.label"
+    type="number"
+    name="parpadeos"
+    model="data.parpadeos.model"
+    required="data.parpadeos.required"
+    step="data.parpadeos.step">
+  </question>
+
+  <question
+    label="data.pokemon.label"
+    type="radio"
+    name="pokemon"
+    model="data.pokemon.model"
+    options="data.pokemon.options">
+  </question>
+
+  <question
+    label="data.color.label"
+    type="select"
+    name="color"
+    model="data.color.model"
+    required="data.color.required"
+    options="data.color.options">
+  </question>
+
+  <question
+    label="data.spam.label"
+    type="checkbox"
+    name="diccionarios"
+    model="data.spam.model">
+  </question>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </div>
+</form>
