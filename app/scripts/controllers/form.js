@@ -10,8 +10,12 @@
 moduleAngular
   .controller('FormCtrl', ['$scope', function ($scope) {
     $scope.name = 'formulario';
-  	$scope.data = {
+    $scope.results = [];
+  	$scope.data =
+    // [
+    {
       nombre: {
+        name: 'nombre',
         model: null,
         label: 'Nombre',
         required: true,
@@ -19,12 +23,14 @@ moduleAngular
         pattern: /^[\w ]+$/
       },
       pass: {
+        name: 'pass',
         model: null,
         label: 'Contraseña',
         required: true,
         minlength: 4
       },
       nacimiento: {
+        name: 'nacimiento',
         model: null,
         label: 'Fecha de nacimiento',
         required: true,
@@ -32,17 +38,20 @@ moduleAngular
         max: new Date()
       },
       email: {
+        name: 'email',
         model: null,
         label: 'Email',
         required: true,
       },
       parpadeos: {
+        name: 'parpadeos',
         model: null,
         label: '¿Cuantas veces parpadeas cada día?',
         required: true
       },
       pokemon: {
-        model: null,
+        name: 'pokemon',
+        model: '',
         label: '¿Qué pokémon elegiste de inicio?',
         options: [{
           label: 'Bulbasaur',
@@ -56,6 +65,7 @@ moduleAngular
         }]
       },
       color: {
+        name: 'color',
         model: null,
         label: '¿Cual es tu color favorito?',
         required: true,
@@ -80,24 +90,40 @@ moduleAngular
         }]
       },
       spam: {
+        name: 'spam',
         model: false,
         label: '¿Quieres que te enviemos spam?'
       }
-  	};
+    };
+    //];
 
     $scope.submit = function() {
+      var formData = [];
+      // $scope.data.forEach(function(question) {
+      Object.keys($scope.data).forEach(function(name) {
 
-      // solo al date le ponía ng-dirty y le quitaba ng-pristine al hacer el ngSubmit...
-      Object.keys($scope.data)
-        .map(k => $scope[$scope.name][k])   // este mapeo depende de que al <question> le demos el mimso name que la clave del $scope.data
-        .filter(el => !!el && !!el.$setDirty)
-        .forEach(el => el.$setDirty());
+        var question =  $scope.data[name];
+        var questionCtrl = $scope[$scope.name][question.name];
+
+        // Al hacer el ngSubmit del formulario, solo al campo date le ponía el ngDirty
+        // y le quitaba el ngPristine, y podía ver los errores, pero al resto de campos
+        // se lo tengo que poner yo mismo...
+        questionCtrl.$setDirty();
+
+        // Cargo esto aquí para evitarme repetir el bucle más abajo.
+        if (questionCtrl.$valid) {
+
+          formData.push({
+            question: question.label,
+            answer: question.model
+          });
+        }
+      });
 
       if ($scope.formulario.$valid) {
-        var send = Object.keys($scope.data)
-          .map(k => ({ q: $scope.data[k].label, a: $scope.data[k].model }));
+        $scope.results = formData;
 
-        console.log('iee', send);
+        $('#modal .modal').modal();
       }
     }
   }]);

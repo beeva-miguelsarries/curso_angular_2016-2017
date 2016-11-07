@@ -1,72 +1,81 @@
 <form name="{{ name }}" ng-submit="submit()" novalidate>
-  {{ validating | json }}
-  <question
+
+  <!-- Para evitar que chrome me guarde el "usuario" -->
+  <input type="password" style="display:none">
+
+  <!-- ng-repeat solo da problemas y no representa un caso de uso para la directiva -->
+  <!--question ng-repeat="question in data"
+    label="question.label"
+    type="question.type"
+    name="question.name"
+    model="question.model"
+    required="question.required"
+    maxlength="question.maxlength"
+    minlength="question.minlength"
+    min="question.min"
+    max="question.max"
+    pattern="question.pattern"
+    options="question.options">
+  </question-->
+
+  <question type="text"
     label="data.nombre.label"
-    type="text"
-    name="nombre"
+    name="data.nombre.name"
     model="data.nombre.model"
     required="data.nombre.required"
     maxlength="data.nombre.maxlength"
     pattern="data.nombre.pattern">
   </question>
 
-  <question
+  <question type="password"
     label="data.pass.label"
-    type="password"
-    name="pass"
+    name="data.pass.name"
     model="data.pass.model"
     required="data.pass.required"
     minlength="data.pass.minlength">
   </question>
 
-  <question
+  <question type="date"
     label="data.nacimiento.label"
-    type="date"
-    name="nacimiento"
+    name="data.nacimiento.name"
     model="data.nacimiento.model"
     required="data.nacimiento.required"
     min="data.nacimiento.min"
     max="data.nacimiento.max">
   </question>
 
-  <question
+  <question type="email"
     label="data.email.label"
-    type="email"
-    name="email"
+    name="data.email.name"
     model="data.email.model"
     required="data.email.required">
   </question>
 
-  <question
+  <question type="number"
     label="data.parpadeos.label"
-    type="number"
-    name="parpadeos"
+    name="data.parpadeos.name"
     model="data.parpadeos.model"
-    required="data.parpadeos.required"
-    step="data.parpadeos.step">
+    required="data.parpadeos.required">
   </question>
 
-  <question
+  <question type="radio"
     label="data.pokemon.label"
-    type="radio"
-    name="pokemon"
+    name="data.pokemon.name"
     model="data.pokemon.model"
     options="data.pokemon.options">
   </question>
 
-  <question
+  <question type="select"
     label="data.color.label"
-    type="select"
-    name="color"
+    name="data.color.name"
     model="data.color.model"
     required="data.color.required"
     options="data.color.options">
   </question>
 
-  <question
+  <question type="checkbox"
     label="data.spam.label"
-    type="checkbox"
-    name="diccionarios"
+    name="data.spam.name"
     model="data.spam.model">
   </question>
 
@@ -74,3 +83,5 @@
     <button type="submit" class="btn btn-primary">Enviar</button>
   </div>
 </form>
+
+<modal id="modal" results="results"></modal>
